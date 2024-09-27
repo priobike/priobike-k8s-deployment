@@ -1,6 +1,12 @@
 dependencies:
-- name: privacy-policy
+- name: priobike-privacy-policy-service
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.4.0
+- name: priobike-mqtt
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.4.0
+- name: priobike-mqtt-authenticator
   repository: https://priobike.github.io/priobike-helm-charts
   version: 0.3.0
-digest: sha256:9e801db7060b730ea0ffdac3351f72c54c738a3c6baae8a99642a98c891a1a0f
-generated: "2024-09-26T14:13:40.116715+02:00"
+digest: sha256:744bc8ef81e28a2698fe58b5ba1e93adbda88ed4fbc2d638a6aad7414da96d34
+generated: "2024-09-27T14:11:12.246542+02:00"
