@@ -60,3 +60,11 @@ kubectl wait --namespace ingress-nginx \
   --selector=app.kubernetes.io/component=controller \
   --timeout=90s
 ```
+
+Add your registry credentials as secret:
+```bash
+kubectl create secret docker-registry regcred \
+--docker-server=REGISTRY_URL \
+--docker-username=USERNAME \
+--docker-password=PASSWORD
+```
