@@ -4,9 +4,9 @@ dependencies:
   version: 0.4.0
 - name: priobike-mqtt
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.4.0
+  version: 0.5.0
 - name: priobike-mqtt-authenticator
   repository: https://priobike.github.io/priobike-helm-charts
   version: 0.3.0
-digest: sha256:744bc8ef81e28a2698fe58b5ba1e93adbda88ed4fbc2d638a6aad7414da96d34
-generated: "2024-09-27T14:11:12.246542+02:00"
+digest: sha256:b634f6fd8867862dcea83e488046ff68ea7bd52a0620365c4a8af1fba1016631
+generated: "2024-09-30T15:14:47.721245+02:00"

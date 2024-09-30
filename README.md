@@ -42,8 +42,8 @@ nodes:
   - containerPort: 443 # https
     hostPort: 443
     protocol: TCP
-  - containerPort: 1883 # mqtt/tcp 
-    hostPort: 1883
+  - containerPort: 30000 # mqtt/tcp 
+    hostPort: 30000 
     protocol: TCP
 EOF
 ```
