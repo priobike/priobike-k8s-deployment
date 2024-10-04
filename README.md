@@ -9,7 +9,7 @@ helm dependency update
 
 Install/upgrade: 
 ```bash
-helm upgrade --install priobike-k8s-deployment .
+helm upgrade --install priobike-k8s-deployment . --namespace priobike-k8s-deployment --create-namespace
 ```
 
 ## Local development
@@ -66,5 +66,6 @@ Add your registry credentials as secret:
 kubectl create secret docker-registry regcred \
 --docker-server=REGISTRY_URL \
 --docker-username=USERNAME \
---docker-password=PASSWORD
+--docker-password=PASSWORD \
+--namespace priobike-k8s-deployment
 ```

@@ -8,5 +8,17 @@ dependencies:
 - name: priobike-mqtt-authenticator
   repository: https://priobike.github.io/priobike-helm-charts
   version: 0.3.0
-digest: sha256:b634f6fd8867862dcea83e488046ff68ea7bd52a0620365c4a8af1fba1016631
-generated: "2024-09-30T15:14:47.721245+02:00"
+- name: priobike-shlink
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-shlink-guard
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-shlink-cache-service
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 16.0.1
+digest: sha256:779ed63687f817bd4ff55d426aec86de0a432e870290c649f5fb44c8ad92e7fe
+generated: "2024-10-04T13:38:54.590635+02:00"

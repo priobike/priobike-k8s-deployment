@@ -9,5 +9,30 @@ priobike-mqtt:
 priobike-mqtt-authenticator:
   passwords: 123456789,sdirugbhriuhg
 
+priobike-shlink:
+  initialApiKey: 0841ab0f-bf12-4859-b731-8316de1f9e5b
+  dbName: shlink
+  dbUser: shlink
+  dbPassword: shlink
+  defaultHost: localhost/link
+  dbDriver: postgres
+
+postgresql:
+  fullnameOverride: priobike-shlink-postgres-service
+  auth:
+    username: shlink
+    password: shlink
+    database: shlink
+  primary:
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 250m
+    persistence:
+      enabled: true
+      size: 1Gi
+    persistentVolumeClaimRetentionPolicy:
+      enabled: true
+
 global:
   namespace: priobike-k8s-deployment
