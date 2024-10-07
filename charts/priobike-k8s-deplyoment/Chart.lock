@@ -1,24 +1,24 @@
 dependencies:
-- name: priobike-privacy-policy-service
+- name: priobike-privacy-policy
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.4.0
+  version: 0.1.0
 - name: priobike-mqtt
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.5.0
+  version: 0.6.0
 - name: priobike-mqtt-authenticator
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.3.0
+  version: 0.4.0
 - name: priobike-shlink
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.1.0
+  version: 0.2.0
 - name: priobike-shlink-guard
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.1.0
-- name: priobike-shlink-cache-service
+  version: 0.2.0
+- name: priobike-cache
   repository: https://priobike.github.io/priobike-helm-charts
   version: 0.1.0
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.0.1
-digest: sha256:779ed63687f817bd4ff55d426aec86de0a432e870290c649f5fb44c8ad92e7fe
-generated: "2024-10-04T13:38:54.590635+02:00"
+digest: sha256:6c2e0c71b7314341154e84e509d857b1267e705162c38042b52899abe73f6f09
+generated: "2024-10-07T16:09:59.651651+02:00"

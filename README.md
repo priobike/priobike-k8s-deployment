@@ -9,7 +9,7 @@ helm dependency update
 
 Install/upgrade: 
 ```bash
-helm upgrade --install priobike-k8s-deployment . --namespace priobike-k8s-deployment --create-namespace
+helm upgrade --install priobike-k8s-deployment . --namespace priobike-k8s-deployment 
 ```
 
 ## Local development
@@ -59,6 +59,11 @@ kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \
   --selector=app.kubernetes.io/component=controller \
   --timeout=90s
+```
+
+Create the namespace if not present yet:
+```bash
+kubectl create namespace priobike-k8s-deployment
 ```
 
 Add your registry credentials as secret:

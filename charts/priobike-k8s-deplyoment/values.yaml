@@ -24,7 +24,7 @@ priobike-shlink-cache:
   labels:
     app: priobike-shlink-cache-app
 
-postgresql:
+priobike-shlink-postgres:
   fullnameOverride: priobike-shlink-postgres-service
   auth:
     username: shlink

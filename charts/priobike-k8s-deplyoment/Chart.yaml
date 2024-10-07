@@ -45,4 +45,5 @@ dependencies:
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: postgresql
   version: "16.0.1"
+  alias: priobike-shlink-postgres
   repository: https://charts.bitnami.com/bitnami
