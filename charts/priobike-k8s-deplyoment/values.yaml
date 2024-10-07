@@ -1,6 +1,3 @@
-priobike-privacy-policy-service:
-  replicas: 2
-
 priobike-mqtt:
   mqttAuthenticatorServiceName: priobike-mqtt-authenticator-service
   mqttAuthenticatorContainerPort: 8000
@@ -16,6 +13,16 @@ priobike-shlink:
   dbPassword: shlink
   defaultHost: localhost/link
   dbDriver: postgres
+
+priobike-shlink-cache:
+  originServiceName: priobike-shlink-guard-service
+  originServicePort: 8000
+  configMapName: priobike-shlink-cache-config
+  deploymentName: priobike-shlink-cache-deployment
+  containerName: priobike-shlink-cache-container
+  serviceName: priobike-shlink-cache-service
+  labels:
+    app: priobike-shlink-cache-app
 
 postgresql:
   fullnameOverride: priobike-shlink-postgres-service
@@ -36,3 +43,4 @@ postgresql:
 
 global:
   namespace: priobike-k8s-deployment
+  priobikeImageRegistry: bikenow.vkw.tu-dresden.de/priobike
