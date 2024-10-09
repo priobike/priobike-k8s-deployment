@@ -21,8 +21,13 @@ priobike-shlink-cache:
   deploymentName: priobike-shlink-cache-deployment
   containerName: priobike-shlink-cache-container
   serviceName: priobike-shlink-cache-service
+  ingressName: priobike-shlink-cache-ingress
   labels:
     app: priobike-shlink-cache-app
+  path: /link(/|$)(.*)
+  pathType: Prefix
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 
 priobike-shlink-postgres:
   fullnameOverride: priobike-shlink-postgres-service

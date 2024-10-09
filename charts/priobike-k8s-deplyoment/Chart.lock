@@ -16,9 +16,9 @@ dependencies:
   version: 0.2.0
 - name: priobike-cache
   repository: https://priobike.github.io/priobike-helm-charts
-  version: 0.1.0
+  version: 0.2.0
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.0.1
-digest: sha256:6c2e0c71b7314341154e84e509d857b1267e705162c38042b52899abe73f6f09
-generated: "2024-10-07T16:09:59.651651+02:00"
+digest: sha256:f6016cf427639fdf126243cbf65f1611f0b527b4c2ba330ddb7f324ad1e192ed
+generated: "2024-10-09T11:16:42.925142+02:00"
