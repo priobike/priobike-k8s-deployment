@@ -23,6 +23,12 @@ version: 0.2.0
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
 
+maintainers:
+  - name: Paul
+    email: paul_maximilian.pickhardt@tu-dresden.de
+  - name: Daniel
+    email: daniel.jeschor@tu-dresden.de
+
 dependencies:
 - name: priobike-privacy-policy
   version: "0.1.0"
