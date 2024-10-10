@@ -1,0 +1,24 @@
+{{- range $idx, $ingress := .Values.ingress }}
+{{- $ingressNumber := add1 $idx}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-{{ $ingressNumber }}
+  {{- if $ingress.annotations }}
+  annotations:
+    {{- $ingress.annotations | toYaml | nindent 4 }}
+  {{- end }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: {{ $ingress.path | required "A valid $ingress.path entry is required!" }}
+        pathType: {{ $ingress.pathType | required "A valid $ingress.pathType entry is required!" }}
+        backend:
+          service:
+            name: {{ $ingress.serviceName }}
+            port:
+              number: {{ $ingress.servicePort }}
+---
+{{- end }}
