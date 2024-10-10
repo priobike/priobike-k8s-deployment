@@ -1,15 +1,12 @@
-{{- $outer := . -}}
 {{- range $idx, $ingress := .Values.ingress }}
-{{- with $outer -}}
+{{- $ingressNumber := add1 $idx}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Values.ingressNamePrefix }}-{{ $idx + 1 }}
-  if {{- $ingress.annotations }}
+  name: test-{{ $ingressNumber }}
+  {{- if $ingress.annotations }}
   annotations:
-    {{- range $key, $value := $ingress.annotations }}
-    {{ $key }}: {{ $value }}
-    {{- end }}
+    {{- $ingress.annotations | toYaml | nindent 4 }}
   {{- end }}
 spec:
   ingressClassName: nginx
@@ -23,4 +20,5 @@ spec:
             name: {{ $ingress.serviceName }}
             port:
               number: {{ $ingress.servicePort }}
+---
 {{- end }}
