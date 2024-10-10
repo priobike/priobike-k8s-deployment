@@ -33,7 +33,7 @@ ingress:
 priobike-mqtt:
   mqttAuthenticatorServiceName: priobike-mqtt-authenticator-service
   mqttAuthenticatorContainerPort: 8000
-  nodePort: 30000 
+  nodePort: 30000
 
 priobike-mqtt-authenticator:
   passwords: 123456789,sdirugbhriuhg
