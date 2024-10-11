@@ -1,9 +1,8 @@
-{{- range $idx, $ingress := .Values.ingress }}
-{{- $ingressNumber := add1 $idx}}
+{{- range .Values.ingress }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: test-{{ $ingressNumber }}
+  name: {{ $ingress.ingressName }}
   {{- if $ingress.annotations }}
   annotations:
     {{- $ingress.annotations | toYaml | nindent 4 }}

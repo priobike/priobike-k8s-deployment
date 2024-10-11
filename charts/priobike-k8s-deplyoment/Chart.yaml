@@ -31,7 +31,7 @@ maintainers:
 
 dependencies:
 - name: priobike-privacy-policy
-  version: "0.1.0"
+  version: "0.2.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-mqtt
   version: "0.6.0"
@@ -40,7 +40,7 @@ dependencies:
   version: "0.4.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-shlink
-  version: "0.2.0"
+  version: "0.3.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-shlink-guard
   version: "0.2.0"
