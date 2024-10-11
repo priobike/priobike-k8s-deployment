@@ -40,13 +40,13 @@ dependencies:
   version: "0.4.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-shlink
-  version: "0.3.0"
+  version: "0.2.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-shlink-guard
   version: "0.2.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: priobike-cache
-  version: "0.2.0"
+  version: "0.3.0"
   alias: priobike-shlink-cache
   repository: "https://priobike.github.io/priobike-helm-charts"
 - name: postgresql
