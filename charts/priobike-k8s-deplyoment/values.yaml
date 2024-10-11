@@ -1,7 +1,51 @@
+ingress:
+  # Privacy Policy Ingress Configuration
+  - ingressName: priobike-privacy-policy-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /privacy-policy
+    pathType: Prefix
+    serviceName: priobike-privacy-policy-service
+    servicePort: 80
+
+  # Shlink Ingress Configurations (order matters to make sure that the most specific path is matched first)
+  - ingressName: priobike-shlink-cache-ingress-get-via-app
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        if ($request_method != GET) {
+          return 405;
+        }
+    path: /link/link/rest/v3/short-urls/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-shlink-cache-service
+    servicePort: 80
+  - ingressName: priobike-shlink-cache-ingress-post
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        if ($request_method != POST) {
+          return 405;
+        }
+    path: /link/link/rest/v3/short-urls
+    pathType: Exact
+    serviceName: priobike-shlink-cache-service
+    servicePort: 80
+  - ingressName: priobike-shlink-cache-ingress-get-via-browser
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        if ($request_method != GET) {
+          return 405;
+        }
+    path: /link/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-shlink-cache-service
+    servicePort: 80
+
 priobike-mqtt:
   mqttAuthenticatorServiceName: priobike-mqtt-authenticator-service
   mqttAuthenticatorContainerPort: 8000
-  nodePort: 30000 
+  nodePort: 30000
 
 priobike-mqtt-authenticator:
   passwords: 123456789,sdirugbhriuhg
