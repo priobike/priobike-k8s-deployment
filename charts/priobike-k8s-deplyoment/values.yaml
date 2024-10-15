@@ -157,4 +157,3 @@ priobike-shlink-postgres:
 global:
   namespace: priobike-k8s-deployment
   priobikeImageRegistry: bikenow.vkw.tu-dresden.de/priobike
-
