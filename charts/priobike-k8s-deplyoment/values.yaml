@@ -1,7 +1,7 @@
 ingress:
   # Photon Ingress Configuration
-  - ingressName: priobike-photon-ingress 
-    annotations: 
+  - ingressName: priobike-photon-ingress
+    annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
     path: /photon/(.*)
     pathType: ImplementationSpecific
@@ -19,7 +19,7 @@ ingress:
 
   # Graphhopper DRN Ingress Configuration
   - ingressName: priobike-graphhopper-drn-ingress
-    annotations: 
+    annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
     path: /drn-graphhopper/(.*)
     pathType: ImplementationSpecific
@@ -28,7 +28,7 @@ ingress:
 
   # Overpass DRN Ingress Configuration
   - ingressName: priobike-overpass-drn-ingress
-    annotations: 
+    annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
     path: /drn-overpass/(.*)
     pathType: ImplementationSpecific
@@ -157,3 +157,4 @@ priobike-shlink-postgres:
 global:
   namespace: priobike-k8s-deployment
   priobikeImageRegistry: bikenow.vkw.tu-dresden.de/priobike
+
