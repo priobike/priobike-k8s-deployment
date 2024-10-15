@@ -1,64 +1,64 @@
 ingress:
   # Photon Ingress Configuration
   - ingressName: priobike-photon-ingress 
-    annototations: 
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /photon
-    pathType: Prefix
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /photon/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-photon-service
-    servicePort: 80
+    servicePort: 2322
 
   # Auth Ingress Configuration
-  - ingressName: priobike-auth-ingress 
-    annototations: 
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /auth
-    pathType: Prefix
+  - ingressName: priobike-auth-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /auth/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-auth-service
     servicePort: 80
 
   # Graphhopper DRN Ingress Configuration
   - ingressName: priobike-graphhopper-drn-ingress
-    annototations: 
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /drn-graphhopper
-    pathType: Prefix
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /drn-graphhopper/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-graphhopper-drn-service
     servicePort: 8989
 
   # Overpass DRN Ingress Configuration
   - ingressName: priobike-overpass-drn-ingress
-    annototations: 
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /drn-overpass
-    pathType: Prefix
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /drn-overpass/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-overpass-drn-service
     servicePort: 80
 
   # POI Ingress Configuration
   - ingressName: priobike-poi-ingress
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /poi-service-backend
-    pathType: Prefix
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /poi-service-backend/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-poi-service
     servicePort: 8000
 
   # SG Selector Ingress Configuration
   - ingressName: priobike-sg-selector-ingress
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /sg-selector-backend
-    pathType: Prefix
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /sg-selector-backend/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-sg-selector-service
     servicePort: 8000
 
   # SG Selector NGINX Ingress Configuration
   - ingressName: priobike-sg-selector-nginx-ingress
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-    path: /sg-selector-nginx
-    pathType: Prefix
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /sg-selector-nginx/(.*)
+    pathType: ImplementationSpecific
     serviceName: priobike-sg-selector-nginx-service
     servicePort: 80
 
@@ -74,22 +74,23 @@ ingress:
   # Shlink Ingress Configurations (order matters to make sure that the most specific path is matched first)
   - ingressName: priobike-shlink-cache-ingress-get-via-app
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/rewrite-target: /rest/v3/short-urls/$1
       nginx.ingress.kubernetes.io/configuration-snippet: |
         if ($request_method != GET) {
           return 405;
         }
-    path: /link/link/rest/v3/short-urls/(.*)
+    path: /link/rest/v3/short-urls/(.*)
     pathType: ImplementationSpecific
     serviceName: priobike-shlink-cache-service
     servicePort: 80
   - ingressName: priobike-shlink-cache-ingress-post
     annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /rest/v3/short-urls
       nginx.ingress.kubernetes.io/configuration-snippet: |
         if ($request_method != POST) {
           return 405;
         }
-    path: /link/link/rest/v3/short-urls
+    path: /link/rest/v3/short-urls
     pathType: Exact
     serviceName: priobike-shlink-cache-service
     servicePort: 80
