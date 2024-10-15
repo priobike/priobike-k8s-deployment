@@ -74,4 +74,4 @@ dependencies:
 - name: priobike-sg-selector-nginx
   version: "0.2.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
- 
+
