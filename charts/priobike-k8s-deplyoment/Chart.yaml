@@ -53,3 +53,25 @@ dependencies:
   version: "16.0.1"
   alias: priobike-shlink-postgres
   repository: https://charts.bitnami.com/bitnami
+- name: priobike-photon
+  version: "0.2.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-auth
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-graphhopper-drn
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-overpass-drn
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-poi
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-sg-selector
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-sg-selector-nginx
+  version: "0.2.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+ 

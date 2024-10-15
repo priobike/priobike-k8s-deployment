@@ -1,4 +1,67 @@
 ingress:
+  # Photon Ingress Configuration
+  - ingressName: priobike-photon-ingress 
+    annototations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /photon
+    pathType: Prefix
+    serviceName: priobike-photon-service
+    servicePort: 80
+
+  # Auth Ingress Configuration
+  - ingressName: priobike-auth-ingress 
+    annototations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /auth
+    pathType: Prefix
+    serviceName: priobike-auth-service
+    servicePort: 80
+
+  # Graphhopper DRN Ingress Configuration
+  - ingressName: priobike-graphhopper-drn-ingress
+    annototations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /drn-graphhopper
+    pathType: Prefix
+    serviceName: priobike-graphhopper-drn-service
+    servicePort: 8989
+
+  # Overpass DRN Ingress Configuration
+  - ingressName: priobike-overpass-drn-ingress
+    annototations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /drn-overpass
+    pathType: Prefix
+    serviceName: priobike-overpass-drn-service
+    servicePort: 80
+
+  # POI Ingress Configuration
+  - ingressName: priobike-poi-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /poi-service-backend
+    pathType: Prefix
+    serviceName: priobike-poi-service
+    servicePort: 8000
+
+  # SG Selector Ingress Configuration
+  - ingressName: priobike-sg-selector-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /sg-selector-backend
+    pathType: Prefix
+    serviceName: priobike-sg-selector-service
+    servicePort: 8000
+
+  # SG Selector NGINX Ingress Configuration
+  - ingressName: priobike-sg-selector-nginx-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    path: /sg-selector-nginx
+    pathType: Prefix
+    serviceName: priobike-sg-selector-nginx-service
+    servicePort: 80
+
   # Privacy Policy Ingress Configuration
   - ingressName: priobike-privacy-policy-ingress
     annotations:

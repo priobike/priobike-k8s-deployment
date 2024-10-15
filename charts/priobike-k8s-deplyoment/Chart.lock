@@ -20,5 +20,26 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.0.1
-digest: sha256:a10ac54510b90f021a3bbb2ec04a8a7eeef08618d6bddf1062aab9d7ebff00bc
-generated: "2024-10-11T10:13:14.550958+02:00"
+- name: priobike-photon
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.2.0
+- name: priobike-auth
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-graphhopper-drn
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-overpass-drn
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-poi
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-sg-selector
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-sg-selector-nginx
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+digest: sha256:05cc86b937f57170adbb66951d80d4efb5071e2fbe8b70ab13acb446d99a7f6a
+generated: "2024-10-15T12:42:51.330928+02:00"
