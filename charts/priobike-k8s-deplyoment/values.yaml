@@ -132,7 +132,7 @@ ingress:
     servicePort: 80
 
 priobike-news:
-  syncKey: 123456789
+  syncKey: "123456789"
   djangoKey: abcdefghijklmnopqrstuvwxyz
   csrfTrustedOrigin: http://localhost
   manager:

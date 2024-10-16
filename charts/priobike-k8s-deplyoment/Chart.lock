@@ -41,5 +41,8 @@ dependencies:
 - name: priobike-sg-selector-nginx
   repository: https://priobike.github.io/priobike-helm-charts
   version: 0.2.0
-digest: sha256:89ae15f1340ba92bcd0a51cf62475fa940ab20cc7d8851e9a3fb93457ad83104
-generated: "2024-10-15T14:32:10.486637+02:00"
+- name: priobike-news
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.7.0
+digest: sha256:d054941c5bbabc94e599fdf46a9f6c33b7ae456f4fa26c32a33352d7c26df9a6
+generated: "2024-10-16T10:58:26.299394+02:00"
