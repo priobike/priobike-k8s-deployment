@@ -50,7 +50,7 @@ EOF
 
 Add ingress NGINX:
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f nginx-ingress-deploy.yaml
 ```
 
 Wait until the ingress is set up:

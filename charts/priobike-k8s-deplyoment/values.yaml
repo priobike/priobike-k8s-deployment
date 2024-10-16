@@ -1,4 +1,92 @@
+basicAuthSecrets:
+  - secretName: priobike-news-manager-basic-auth
+    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/
+
 ingress:
+  # News Worker Ingress Configuration
+  - ingressName: priobike-news-worker-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /news-service-worker/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-news-worker-service
+    servicePort: 8000
+
+  # News Manager Ingress Configuration
+  - ingressName: priobike-news-manager-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /admin/$1
+      nginx.ingress.kubernetes.io/auth-type: basic
+      nginx.ingress.kubernetes.io/auth-secret: priobike-news-manager-basic-auth
+      nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - foo'
+    path: /news-service-manager/admin/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-news-manager-service
+    servicePort: 8000
+
+  # Photon Ingress Configuration
+  - ingressName: priobike-photon-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /photon/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-photon-service
+    servicePort: 2322
+
+  # Auth Ingress Configuration
+  - ingressName: priobike-auth-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /auth/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-auth-service
+    servicePort: 80
+
+  # Graphhopper DRN Ingress Configuration
+  - ingressName: priobike-graphhopper-drn-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /drn-graphhopper/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-graphhopper-drn-service
+    servicePort: 8989
+
+  # Overpass DRN Ingress Configuration
+  - ingressName: priobike-overpass-drn-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /drn-overpass/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-overpass-drn-service
+    servicePort: 80
+
+  # POI Ingress Configuration
+  - ingressName: priobike-poi-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /poi-service-backend/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-poi-service
+    servicePort: 8000
+
+  # SG Selector Ingress Configuration
+  - ingressName: priobike-sg-selector-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /sg-selector-backend/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-sg-selector-service
+    servicePort: 8000
+
+  # SG Selector NGINX Ingress Configuration
+  - ingressName: priobike-sg-selector-nginx-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /sg-selector-nginx/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-sg-selector-nginx-service
+    servicePort: 80
+
   # Privacy Policy Ingress Configuration
   - ingressName: priobike-privacy-policy-ingress
     annotations:
@@ -11,22 +99,23 @@ ingress:
   # Shlink Ingress Configurations (order matters to make sure that the most specific path is matched first)
   - ingressName: priobike-shlink-cache-ingress-get-via-app
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/rewrite-target: /rest/v3/short-urls/$1
       nginx.ingress.kubernetes.io/configuration-snippet: |
         if ($request_method != GET) {
           return 405;
         }
-    path: /link/link/rest/v3/short-urls/(.*)
+    path: /link/rest/v3/short-urls/(.*)
     pathType: ImplementationSpecific
     serviceName: priobike-shlink-cache-service
     servicePort: 80
   - ingressName: priobike-shlink-cache-ingress-post
     annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /rest/v3/short-urls
       nginx.ingress.kubernetes.io/configuration-snippet: |
         if ($request_method != POST) {
           return 405;
         }
-    path: /link/link/rest/v3/short-urls
+    path: /link/rest/v3/short-urls
     pathType: Exact
     serviceName: priobike-shlink-cache-service
     servicePort: 80
@@ -41,6 +130,15 @@ ingress:
     pathType: ImplementationSpecific
     serviceName: priobike-shlink-cache-service
     servicePort: 80
+
+priobike-news:
+  syncKey: "123456789"
+  djangoKey: abcdefghijklmnopqrstuvwxyz
+  csrfTrustedOrigin: http://localhost
+  manager:
+    djangoSuperuserPassword: blablabla
+    fcmPushNotificationEnvironment: development
+
 
 priobike-mqtt:
   mqttAuthenticatorServiceName: priobike-mqtt-authenticator-service
