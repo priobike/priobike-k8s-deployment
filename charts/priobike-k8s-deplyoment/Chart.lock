@@ -20,5 +20,41 @@ dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.0.1
-digest: sha256:a10ac54510b90f021a3bbb2ec04a8a7eeef08618d6bddf1062aab9d7ebff00bc
-generated: "2024-10-11T10:13:14.550958+02:00"
+- name: priobike-photon
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.2.0
+- name: priobike-auth
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-graphhopper-drn
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-overpass-drn
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-poi
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.2.0
+- name: priobike-sg-selector
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-sg-selector-nginx
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.2.0
+- name: priobike-news
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.7.0
+- name: priobike-tracking
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-map-data
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-frost-mirror
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+- name: priobike-predictor
+  repository: https://priobike.github.io/priobike-helm-charts
+  version: 0.1.0
+digest: sha256:6dc12ee2643665ac0ff27372057f3e90bc9aef64ce7173b33a81c02c0cb8890f
+generated: "2024-10-21T15:14:27.661748+02:00"

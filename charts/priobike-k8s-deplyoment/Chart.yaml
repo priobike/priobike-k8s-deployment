@@ -15,7 +15,7 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.2.0
+version: 0.3.0
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
@@ -53,3 +53,39 @@ dependencies:
   version: "16.0.1"
   alias: priobike-shlink-postgres
   repository: https://charts.bitnami.com/bitnami
+- name: priobike-photon
+  version: "0.2.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-auth
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-graphhopper-drn
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-overpass-drn
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-poi
+  version: "0.2.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-sg-selector
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-sg-selector-nginx
+  version: "0.2.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: priobike-news
+  version: "0.7.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: "priobike-tracking"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: "priobike-map-data"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: "priobike-frost-mirror"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
+- name: "priobike-predictor"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
