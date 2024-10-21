@@ -1,8 +1,8 @@
 basicAuthSecrets:
   - secretName: priobike-news-manager-basic-auth
-    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/ # user: foo, pw: bar
+    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/  # user: foo, pw: bar
   - secretName: priobike-tracking-manager-basic-auth
-    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/ # user: foo, pw: bar
+    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/  # user: foo, pw: bar
 
 ingress:
   # Predictor NGINX
@@ -11,7 +11,7 @@ ingress:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
     path: /predictor-nginx/(.*)
     pathType: ImplementationSpecific
-    serviceName: priobike-predictor-nginx-service 
+    serviceName: priobike-predictor-nginx-service
     servicePort: 80
 
   # FROST Mirror Ingress Configuration
