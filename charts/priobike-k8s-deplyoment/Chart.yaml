@@ -86,3 +86,6 @@ dependencies:
 - name: "priobike-frost-mirror"
   version: "0.1.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
+- name: "priobike-predictor"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
