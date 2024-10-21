@@ -1,13 +1,36 @@
 basicAuthSecrets:
   - secretName: priobike-news-manager-basic-auth
-    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/
+    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/ # user: foo, pw: bar
+  - secretName: priobike-tracking-manager-basic-auth
+    htpasswdFileContent: foo:$apr1$DktyLw42$0zMeN9fPwQwFyvLXpU3qg/ # user: foo, pw: bar
 
 ingress:
+  # Tracking Worker Ingress Configuration
+  - ingressName: priobike-tracking-worker-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    path: /tracking-service/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-tracking-worker-service
+    servicePort: 8000
+
+  # Tracking Manager Ingress Configuration
+  - ingressName: priobike-tracking-manager-ingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /admin/$1
+      nginx.ingress.kubernetes.io/auth-type: basic
+      nginx.ingress.kubernetes.io/auth-secret: priobike-tracking-manager-basic-auth
+      nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - foo'
+    path: /tracking-service-manager/admin/(.*)
+    pathType: ImplementationSpecific
+    serviceName: priobike-tracking-manager-service
+    servicePort: 8000
+
   # News Worker Ingress Configuration
   - ingressName: priobike-news-worker-ingress
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /$1
-    path: /news-service-worker/(.*)
+    path: /news-service/(.*)
     pathType: ImplementationSpecific
     serviceName: priobike-news-worker-service
     servicePort: 8000
@@ -139,6 +162,13 @@ priobike-news:
     djangoSuperuserPassword: blablabla
     fcmPushNotificationEnvironment: development
 
+priobike-tracking:
+  syncKey: seghseherhs
+  djangoKey: werhwerhwerhwerhwerhwjzweiiow
+  csrfTrustedOrigin: http://localhost
+  manager:
+    djangoSuperuserPassword: bliblablub
+    apiKey: totallySecureApiKey
 
 priobike-mqtt:
   mqttAuthenticatorServiceName: priobike-mqtt-authenticator-service
