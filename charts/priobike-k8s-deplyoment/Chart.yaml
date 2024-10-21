@@ -80,4 +80,6 @@ dependencies:
 - name: "priobike-tracking"
   version: "0.1.0"
   repository: "https://priobike.github.io/priobike-helm-charts"
- 
+- name: "priobike-map-data"
+  version: "0.1.0"
+  repository: "https://priobike.github.io/priobike-helm-charts"
