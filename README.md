@@ -1,6 +1,6 @@
 # priobike-k8s-deployment
 
-## Getting started
+## Usage
 
 Resolve dependencies:
 ```bash
@@ -11,6 +11,10 @@ Install/upgrade:
 ```bash
 helm upgrade --install priobike-k8s-deployment . --namespace priobike-k8s-deployment 
 ```
+
+> [!IMPORTANT]  
+> This backend setup uses another service ([priobike-predictor](https://github.com/priobike/priobike-predictor)) for predictions than our latest app version.
+> Therefore, this backend only works with the [priobike-flutter-app](https://github.com/priobike/priobike-flutter-app/) until commit [318eadaa4662404919f3d3c122a24dae230fdbb7](https://github.com/priobike/priobike-flutter-app/tree/318eadaa4662404919f3d3c122a24dae230fdbb7).
 
 ## Local development
 
